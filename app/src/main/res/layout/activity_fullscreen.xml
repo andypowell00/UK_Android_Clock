@@ -22,14 +22,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:layout_marginTop="52dp"
+            android:layout_marginTop="22dp"
             android:layout_marginLeft="280dp"
             android:keepScreenOn="true"
             android:padding="2dp"
             android:visibility="gone"
             android:textColor="#ffffff"
             android:textSize="42sp"
-            android:lineSpacingExtra="9dp"
+            android:lineSpacingExtra="7dp"
             android:layout_weight="1"
             />
         <TextView
@@ -44,7 +44,7 @@
             android:padding="2dp"
             android:textColor="#ffffff"
             android:textSize="36sp"
-            android:lineSpacingExtra="5dp"
+            android:lineSpacingExtra="6dp"
             android:layout_weight="1"
             />
 
@@ -67,18 +67,19 @@
         android:layout_margin="13.5dp"
         android:format12Hour="hh:mm"
         android:layout_gravity="left"
-        android:textSize="95sp"
+        android:textSize="105dp"
          />
     <TextView
         android:id="@+id/sadTourney"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="195dp"
+        android:layout_marginBottom="265dp"
+        android:layout_marginRight="35dp"
         android:gravity="center"
         android:text="NCAA Tournament result:"
         android:textSize="42sp"
         android:visibility="gone"
-        android:padding="3dp"
+        android:padding="1dp"
         android:textColor="#ffffff"
         android:layout_gravity="bottom|center"
         >
@@ -88,11 +89,11 @@
         android:layout_width="85dp"
         android:layout_height="85dp"
         android:gravity="center"
-        android:padding="3dp"
+        android:padding="1dp"
         android:visibility="gone"
         android:layout_gravity="bottom|center"
-        android:layout_marginBottom="185dp"
-        android:layout_marginLeft="225dp"
+        android:layout_marginBottom="245dp"
+        android:layout_marginLeft="185dp"
         android:src="@drawable/sad_jordan"
         />
     <TextView
