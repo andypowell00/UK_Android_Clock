@@ -69,6 +69,7 @@ public class FullscreenActivity extends Activity {
     private static final int UI_ANIMATION_DELAY = 300;
     private final Handler mHideHandler = new Handler();
     private View mContentView;
+    private View leaderContentView;
     private JsonHelpers jsonHelpers;
     private GeneralHelpers helpers;
     private CountdownTimer countdownTimer;
@@ -82,6 +83,12 @@ public class FullscreenActivity extends Activity {
             // and API 19 (KitKat). It is safe to use them, as they are inlined
             // at compile-time and do nothing on earlier devices.
             mContentView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LOW_PROFILE
+                    | View.SYSTEM_UI_FLAG_FULLSCREEN
+                    | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                    | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                    | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                    | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
+            leaderContentView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LOW_PROFILE
                     | View.SYSTEM_UI_FLAG_FULLSCREEN
                     | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
                     | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
@@ -132,6 +139,7 @@ public class FullscreenActivity extends Activity {
         mVisible = true;
         mControlsView = findViewById(R.id.fullscreen_content_controls);
         mContentView = findViewById(R.id.fullscreen_content);
+        leaderContentView = findViewById(R.id.fullscreen_content_leaderboard);
         timerTextView = (TextView)findViewById((R.id.countdown));
         root = findViewById(R.id.flo);
         jsonHelpers = new JsonHelpers();
@@ -167,15 +175,6 @@ public class FullscreenActivity extends Activity {
         timer.schedule(doAsynchronousTask,500,3600000); //run every hour
 
 
-
-        // Set up the user interaction to manually show or hide the system UI.
-        mContentView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                toggle();
-                //updateView();
-            }
-        });
         textClock.setOnClickListener(new TextClock.OnClickListener() {
             public void onClick(View v){
 
@@ -218,6 +217,7 @@ public class FullscreenActivity extends Activity {
             JSONObject statJSON = jsonHelpers.changeStat(is);
             String statDescription = statJSON.getString("Description");
             String type = statJSON.getString("Type");
+
             if(type.equals("leaderboard")){
                 textViewCountdownLabel.setTextColor(Color.parseColor("#1897d4"));
                 timerTextView.setTextColor(Color.parseColor("#1897d4"));
